@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RZX Studio — Studio de développement indépendant</title>
+  <meta name="description" content="RZX Studio, studio de développement indépendant à La Réunion : logiciels professionnels et jeux smartphone.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://rzxstudio.fr/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="RZX Studio">
+  <meta property="og:description" content="Studio de développement indépendant — logiciels professionnels et jeux smartphone.">
+  <meta property="og:url" content="https://rzxstudio.fr/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="nav-logo" aria-label="RZX Studio, accueil">RZX<span>.</span></a>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="kicker reveal">Micro-entreprise · La Réunion</p>
+      <h1 class="reveal">
+        <span class="line">RZX</span>
+        <span class="line outline">Studio</span>
+      </h1>
+      <p class="tagline reveal">Studio de développement <mark>indépendant</mark>.</p>
+      <a href="#projets" class="scroll-hint reveal" aria-label="Voir les projets">
+        <span></span>
+      </a>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Logiciels professionnels</span><i>✦</i><span>Jeux smartphone</span><i>✦</i><span>Applications web</span><i>✦</i><span>Fait à La Réunion</span><i>✦</i>
+        <span>Logiciels professionnels</span><i>✦</i><span>Jeux smartphone</span><i>✦</i><span>Applications web</span><i>✦</i><span>Fait à La Réunion</span><i>✦</i>
+      </div>
+    </div>
+
+    <section id="projets" class="projects">
+      <h2 class="section-title reveal"><span>01</span> Ce que je fais</h2>
+
+      <article class="card reveal">
+        <div class="card-logo">
+          <img src="assets/img/ocaz.png" alt="Logo Ocaz" width="160" height="160">
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Logiciels pro</p>
+          <h3>Développement de logiciels professionnels</h3>
+          <p>Des outils métier pensés pour le terrain. <strong>Ocaz</strong> gère toute la partie véhicules d'occasion : stock, reprises, dépôt-vente, documents, facturation.</p>
+          <a class="card-link" href="https://ocaz.re" target="_blank" rel="noopener">Découvrir Ocaz <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-logo">
+          <img src="assets/img/jumpy-cardinal.png" alt="Logo Jumpy Cardinal" width="160" height="160">
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Jeux mobiles</p>
+          <h3>Développement de jeux smartphone</h3>
+          <p>Des jeux simples, nerveux et addictifs. <strong>Jumpy Cardinal</strong> : un petit oiseau rouge, un tap pour voler, et un record à battre.</p>
+          <span class="card-link muted">Bientôt sur mobile</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title reveal"><span>02</span> Un projet ?</h2>
+      <p class="contact-lead reveal">Une idée de logiciel ou d'application ? Parlons-en.</p>
+      <a class="big-mail reveal" href="mailto:contact@rzxstudio.fr">contact@rzxstudio.fr</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> RZX Studio</span>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (el.closest('.hero') ? i * 0.12 : 0) + 's';
+      io.observe(el);
+    });
+    const nav = document.querySelector('.nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
+  </script>
+</body>
+</html>
